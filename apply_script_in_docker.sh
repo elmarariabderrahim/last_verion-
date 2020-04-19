@@ -11,11 +11,10 @@ read -ra ADDR <<< "$str"
 docker_mysql_port=${ADDR[1]}
 echo ${docker_mysql_port}
 
-
 flag=""
-for f in PATT_UTILS/sql/*; do
+for f in sql_script/*; do
 	
-			script_name=$(echo $f| cut -d'/' -f 3)
+			script_name=$(echo $f| cut -d'/' -f 2)
 			
 			  # echo $script_name
 			script_type=$(echo $script_name| cut -d'_' -f 1)
@@ -72,15 +71,17 @@ for f in PATT_UTILS/sql/*; do
 									varrr=""	 
 									while IFS= read -r line
 									do
-									    varrr="${varrr}$line"
+										if [[ $line != *"commit;"* ]]; then
+										varrr="${varrr}$line"
+										fi
+									    
 									done < "$input" 
 									
 									# mysql -P $docker_mysql_port --protocol=tcp -uroot -ppixid123 -Bse " START TRANSACTION;"
 									mysql -u$username -p$password -Bse " START TRANSACTION;"
-									echo "+++++"
-									echo $varrr
+									
 									# mysql -P $docker_mysql_port --protocol=tcp -uroot -ppixid123 -Bse "SET AUTOCOMMIT=0; $varrr commit;" 
-									mysql  -u$username -p$password -Bse "SET AUTOCOMMIT=0; $varrr commit;" 
+									mysql  -u$username -p$password -Bse "SET AUTOCOMMIT=0; $varrr " 
 
 									if [ "$?" -eq 0 ]; then
 										echo "l'insertion est passer par succes dans $script_name"
