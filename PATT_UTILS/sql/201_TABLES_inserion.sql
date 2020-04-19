@@ -10,7 +10,7 @@ insert into departments values ('2','L');
 insert into departments values ('3','E');
 insert into departments values ('4','P');
 insert into departments values ('5','RH');
-insert into departments values ('6','R');
+insert into departments values ('6','''R');
 insert into departments values ('7','S');
 
 commit;
