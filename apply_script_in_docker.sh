@@ -76,8 +76,7 @@ for f in PATT_UTILS/sql/*; do
 									done < "$input" 
 									
 									mysql -P $docker_mysql_port --protocol=tcp  -u$username -p$password -Bse " START TRANSACTION;"
-									echo "+++++"
-									echo $varrr
+									
 									mysql -P $docker_mysql_port --protocol=tcp  -u$username -p$password -Bse "SET AUTOCOMMIT=0; $varrr commit;" 
 									if [ "$?" -eq 0 ]; then
 										echo "l'insertion est passer par succes dans $script_name"
