@@ -43,7 +43,7 @@ pipeline {
 						
 					)
 			]){
-        	     bat "sh  ./apply_script_in_docker.sh.sh ${USERNAME}  ${PASSWORD}"
+        	     bat "sh  ./apply_script_in_docker.sh ${USERNAME}  ${PASSWORD}"
 		   }
         	              }
         }  
