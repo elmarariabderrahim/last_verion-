@@ -75,13 +75,13 @@ for f in PATT_UTILS/sql/*; do
 									    varrr="${varrr}$line"
 									done < "$input" 
 									
-									mysql -P $docker_mysql_port --protocol=tcp -uroot -ppixid123 -Bse " START TRANSACTION;"
+									mysql -P $docker_mysql_port --protocol=tcp  -u$username -p$password -Bse " START TRANSACTION;"
 									echo "+++++"
 									echo $varrr
-									mysql -P $docker_mysql_port --protocol=tcp -uroot -ppixid123 -Bse "SET AUTOCOMMIT=0; $varrr commit;" 
+									mysql -P $docker_mysql_port --protocol=tcp  -u$username -p$password -Bse "SET AUTOCOMMIT=0; $varrr commit;" 
 									if [ "$?" -eq 0 ]; then
 										echo "l'insertion est passer par succes dans $script_name"
-										mysql -P $docker_mysql_port --protocol=tcp -uroot -ppixid123 -Bse "commit;"
+										mysql -P $docker_mysql_port --protocol=tcp  -u$username -p$password -Bse "commit;"
 
 										if [[ ${results_of_failed_scripts[*]} =~ "$script_name" ]] 
 											then
@@ -93,7 +93,7 @@ for f in PATT_UTILS/sql/*; do
 										
 									else
 										
-										mysql -P $docker_mysql_port --protocol=tcp -uroot -ppixid123 -Bse "ROLLBACK;"
+										mysql -P $docker_mysql_port --protocol=tcp  -u$username -p$password -Bse "ROLLBACK;"
 										if [[ ${results_of_failed_scripts[*]} =~ "$script_name" ]] 
 											then
 												echo " le script $script_name n'est pas corriger"
