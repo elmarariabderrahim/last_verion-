@@ -32,6 +32,17 @@ pipeline {
 		   
         	              }
         }  
+	    stage('import_db_docker_image') {
+            steps {
+		   
+        	     bat "sh  ./import_db_docker_image.sh.sh ${USERNAME}  ${PASSWORD}"
+		    
+		    
+        	      
+		    
+		   
+        	              }
+        }  
         
    }
 }
