@@ -32,10 +32,10 @@ pipeline {
 		   
         	              }
         }  
-	    stage('import_db_docker_image') {
+	    stage('apply_script_in_docker') {
             steps {
 		   
-        	     bat "sh  ./import_db_docker_image.sh.sh ${USERNAME}  ${PASSWORD}"
+        	     bat "sh  ./apply_script_in_docker.sh.sh ${USERNAME}  ${PASSWORD}"
 		    
 		    
         	      
