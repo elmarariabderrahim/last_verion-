@@ -12,7 +12,7 @@ docker_mysql_port=${ADDR[1]}
 echo ${docker_mysql_port}
 
 flag=""
-for f in sql_script/*; do
+for f in PATT_UTILS/sql/*; do
 	
 			script_name=$(echo $f| cut -d'/' -f 2)
 			
