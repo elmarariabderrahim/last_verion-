@@ -15,7 +15,7 @@ echo ${docker_mysql_port}
 flag=""
 for f in PATT_UTILS/sql/*; do
 	
-			script_name=$(echo $f| cut -d'/' -f 2)
+			script_name=$(echo $f| cut -d'/' -f 3)
 			
 			  # echo $script_name
 			script_type=$(echo $script_name| cut -d'_' -f 1)
