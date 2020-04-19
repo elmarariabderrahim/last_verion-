@@ -3,8 +3,8 @@
 
 //------------------------------
 def user = 'root'
-def pass = 'med123'
-def folderName = 'temp_sql_scripts'
+def pass = 'pixid123'
+def folderName = 'PATT_UTILS/sql'
 //------------------------------
 
 
