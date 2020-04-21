@@ -1,5 +1,3 @@
-
-
 pipeline {
     agent any 
 	 environment {
@@ -35,7 +33,8 @@ pipeline {
           
       }
 	  stage('Import_schema_to_docker') {
-		  
+	
+
             steps {
 		   	withCredentials([
 					usernamePassword(
@@ -46,10 +45,10 @@ pipeline {
 						
 					)
 			]){
-			
+			script{
 			if(CHOIX == 'ddl')
         	     bat "sh  ./import_db_docker_image.sh ${USERNAME}  ${PASSWORD}"
-		    
+		    }
 		    }
 		    
         	      
@@ -75,4 +74,3 @@ pipeline {
         
    }
 }
-
