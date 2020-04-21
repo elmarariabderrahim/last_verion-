@@ -36,7 +36,7 @@ pipeline {
       }
 	  stage('Import_schema_to_docker') {
 		    when {
-			    1=1
+			    ${params.CHOIX} : 'ddl'
 	                }
             steps {
 		   	withCredentials([
