@@ -35,9 +35,7 @@ pipeline {
           
       }
 	  stage('Import_schema_to_docker') {
-		    when {
-			  choice name: 'CHOIX', value: 'ddl'
-	                }
+		  
             steps {
 		   	withCredentials([
 					usernamePassword(
@@ -49,7 +47,7 @@ pipeline {
 					)
 			]){
 			
-			
+			if(CHOIX == 'ddl')
         	     bat "sh  ./import_db_docker_image.sh ${USERNAME}  ${PASSWORD}"
 		    
 		    }
