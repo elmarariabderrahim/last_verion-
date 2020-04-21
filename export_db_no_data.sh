@@ -31,7 +31,7 @@ Read_DB_Name() {
 
 
 for f in PATT_UTILS/sql/*; do
-script_name=$(echo $f| cut -d'/' -f 2)
+script_name=$(echo $f| cut -d'/' -f 3)
 DB_NAME_IN_SCRIPT_UPPERCASE=`Read_DB_Name $f `
 count=${#list_database_in_script[@]}
 flag1=""
