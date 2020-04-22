@@ -1,2 +1,2 @@
 use db5;
-create table bus (id int);
+create table buss (id int);
