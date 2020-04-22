@@ -1,2 +1,2 @@
 use db5;
-create table car (id int);
+create table bus (id int);
