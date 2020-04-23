@@ -32,6 +32,8 @@ Read_DB_Name() {
 
 for f in PATT_UTILS/sql/*; do
 script_name=$(echo $f| cut -d'/' -f 3)
+if [[ ! ${list_script_alredy_succes[*]} =~ $script_name ]]
+then
 DB_NAME_IN_SCRIPT_UPPERCASE=`Read_DB_Name $f `
 count=${#list_database_in_script[@]}
 flag1=""
@@ -55,6 +57,7 @@ done
 	else
 		echo "la base de donnee n'est pas specifier dans le script $script_name "
 	fi
+fi
 done
 count=${#list_database_in_script[@]}
 echo "nombre des bases invoquer dans les scripts est" $count	
