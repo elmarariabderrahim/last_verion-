@@ -9,7 +9,7 @@ pipeline {
 	       description: '1 : Exportation complete de la DB\n2 : Choix des composants necessaires')
          } 
     stages {
-        stage('import_db_to_docker_image') {          
+        stage('export_shema') {          
               steps {
 		    withCredentials([
 					usernamePassword(
