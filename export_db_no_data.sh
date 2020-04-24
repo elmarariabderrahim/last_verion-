@@ -34,13 +34,13 @@ for f in PATT_UTILS/sql/*; do
 script_name=$(echo $f| cut -d'/' -f 3)
 if [[ ! ${list_script_alredy_succes[*]} =~ $script_name ]]
 then
-DB_NAME_IN_SCRIPT_UPPERCASE=`Read_DB_Name $f `
+DB_NAME=`Read_DB_Name $f `
 count=${#list_database_in_script[@]}
 flag1=""
 for (( c=0; c<$count; c++ ))
 do 
 	
-				if [[  ${list_database_in_script[$c]} = ${DB_NAME_IN_SCRIPT_UPPERCASE} ]]; then 
+				if [[  ${list_database_in_script[$c]} = ${DB_NAME} ]]; then 
 					flag1=1
 				else 
 					flag1=0
@@ -48,9 +48,9 @@ do
 
 done
 
-	if [[  $DB_NAME_IN_SCRIPT_UPPERCASE != "NODBINSTRUCTIONINTHEFILE" ]]; then 
+	if [[  $DB_NAME != "NODBINSTRUCTIONINTHEFILE" ]]; then 
 	 	if [[  $flag1 != 1 ]]; then 
-						list_database_in_script+=($DB_NAME_IN_SCRIPT_UPPERCASE)
+						list_database_in_script+=($DB_NAME)
 					
 				fi
 
