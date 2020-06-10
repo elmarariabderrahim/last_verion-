@@ -43,7 +43,7 @@ export password=$5
 SCRIPT_NAME=`basename "$0"`
 SCRIPT_PATH=$(readlink -f "$0")
 SCRIPT_BASEDIR_PATH=$(dirname "$SCRIPT_PATH")
-. ${SCRIPT_BASEDIR_PATH}/environment_config.sh
+. C:/Program Files (x86)/Jenkins/workspace/INT1_RELEASE_CD/environment_config.sh
 #list des scripts qui sont deja a la table de register
 list_script=( $( mysql --batch mysql -u $username -p$password -N -e "use db5; select script_name from scripts where version='$VERSION_NAME';"  ) )
 #list des checksum qui sont deja a la table de register
