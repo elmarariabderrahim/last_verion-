@@ -12,7 +12,7 @@ PLATEFORME_SOURCE=$7
 WORKSPACE=$6
 SCRIPT_PATH=$(readlink -f "$0")
 SCRIPT_BASEDIR_PATH=$(dirname "$SCRIPT_PATH")
-. ${SCRIPT_BASEDIR_PATH}/environment_config.sh
+. C:/"Program Files (x86)"/Jenkins/workspace/INT1_RELEASE_CD/environment_config.sh
 
 DATE_NOW=`date '+%Y-%m-%d-%H-%M-%S'`
 TIMESTAMP=`date '+%Y-%m-%d-%H:%M:%S'`
