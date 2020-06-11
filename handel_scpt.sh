@@ -204,7 +204,7 @@ if [[ ${PLATEFORME_SOURCE} != "" ]]; then
 		VERSIONED_SQL_SCRIPTS_DIRECTORY="appli/deployment/sql/${PLATEFORME_SOURCE}/$VERSION_NUMBER/PROCESSED"
 # afin de tester les scripts déjà testés dans PLATEFORME_SOURCE  dans PLATEFORME
 	# mysql --batch mysql -u $username -p$password -N -e "use db5; update scripts set  script_state='failed' , script_handled ='encour'  where version='$VERSION_NAME' ;"
-	mysql --batch mysql -u $username -p$password -N -e "use db5; update scripts set  script_state='failed',date_build='$TIMESTAMP' , script_handled ='encour'  where script_id IN (select script_id from execution_plateforme where \`$PLATEFORME\`=0)  and version='$VERSION_NAME' and script_state='valid' ;"
+	mysql --batch mysql -u $username -p$password -N -e "use db5; update scripts set  script_state='failed',date_build='$TIMESTAMP' , script_handled ='encour'  where script_id IN (select script_id from execution_plateforme where \`$PLATEFORME\`=0)  and version='$VERSION_NAME' and (script_state='valid' or script_state='succes') ;"
 		# mysql --batch mysql -u $username -p$password -N -e "use db5; update scripts set  script_state='failed' , date_build='$TIMESTAMP',script_handled ='encour'  where script_id  IN (select script_id from execution_plateforme where \`$PLATEFORME\`=0) and version='$VERSION_NAME' and  script_state='invalid' ;"
 
 else 
