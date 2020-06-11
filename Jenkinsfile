@@ -24,7 +24,7 @@ pipeline {
 			
 		//bat "sh  ./get_scripts.sh ${WORKSPACE} ${USERNAME}  ${PASSWORD} ${RELEASE_VERSION_NUMBER_TO_USE} "
                   if(CHOIX == 'no_data')
-                       bat "sh  ./handel_scpt.sh ${JOB_NAME} workspace 6.1.2 ${USERNAME} ${PASSWORD} PATT_UTILS"
+                       bat "sh  ./handel_scpt.sh ${JOB_NAME} workspace 6.1.3 ${USERNAME} ${PASSWORD} PATT_UTILS"
                     else
                       echo "${JOB_NAME}"
                 }
